@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstrateTestbed", "SubstrateTestbed\SubstrateTestbed.csproj", "{319A9A57-5E32-4004-B762-D7102C5FFC9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Substrate (NET4)", "..\Substrate-master\SubstrateCS\Substrate (NET4).csproj", "{7264A1C4-AB4A-4437-B252-7379B98B5509}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{319A9A57-5E32-4004-B762-D7102C5FFC9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319A9A57-5E32-4004-B762-D7102C5FFC9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319A9A57-5E32-4004-B762-D7102C5FFC9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319A9A57-5E32-4004-B762-D7102C5FFC9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7264A1C4-AB4A-4437-B252-7379B98B5509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7264A1C4-AB4A-4437-B252-7379B98B5509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7264A1C4-AB4A-4437-B252-7379B98B5509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7264A1C4-AB4A-4437-B252-7379B98B5509}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
