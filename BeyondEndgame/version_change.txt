@@ -1,0 +1,98 @@
+diff -bur Infinity_2.3.5\AppliedEnergistics.zs Infinity_2.4.2\AppliedEnergistics.zs
+--- Infinity_2.3.5\AppliedEnergistics.zs	Fri Jan 15 17:41:50 2016
++++ Infinity_2.4.2\AppliedEnergistics.zs	Mon Mar 07 20:02:04 2016
+@@ -3,31 +3,32 @@
+ 
+ print("Initializing 'AppliedEnergistics.zs'...");
+ 
+-#generator
+-recipes.remove(<appliedenergistics2:tile.BlockVibrationChamber>);
+-recipes.remove(<thaumicenergistics:thaumicenergistics.block.essentia.vibration.chamber>);
+-recipes.remove(<extracells:vibrantchamberfluid>);
++#wrench
++recipes.remove(<appliedenergistics2:item.ToolNetherQuartzWrench>);
++recipes.remove(<appliedenergistics2:item.ToolCertusQuartzWrench>);
++recipes.addShaped(<appliedenergistics2:item.ToolCertusQuartzWrench>, [[<StevesCarts:ModuleComponents:49>, null, <StevesCarts:ModuleComponents:49>], [null, <AdvancedSolarPanel:asp_crafting_items:4>, null], [null, <AdvancedSolarPanel:asp_crafting_items:4>, null]]);
+ 
+ #energy acceptor/controller
+-recipes.remove(<appliedenergistics2:tile.BlockController>);
+ recipes.remove(<appliedenergistics2:tile.BlockEnergyAcceptor>);
+-recipes.addShaped(<appliedenergistics2:tile.BlockController>, [[<ore:blockEnderium>, <StevesCarts:ModuleComponents:49>, <ore:blockPhasedGold>], [<appliedenergistics2:item.ItemMultiMaterial:23>, <AdvancedSolarPanel:asp_crafting_items:13>, <appliedenergistics2:item.ItemMultiMaterial:23>], [<ore:blockPhasedGold>, <StevesCarts:ModuleComponents:49>, <ore:blockEnderium>]]);
+-recipes.addShaped(<appliedenergistics2:tile.BlockEnergyAcceptor>, [[<ore:blockEnderium>, <StevesCarts:ModuleComponents:49>, <ore:blockPhasedGold>], [<appliedenergistics2:item.ItemMultiMaterial:24>, <AdvancedSolarPanel:asp_crafting_items:13>, <appliedenergistics2:item.ItemMultiMaterial:24>], [<ore:blockPhasedGold>, <StevesCarts:ModuleComponents:49>, <ore:blockEnderium>]]);
++recipes.remove(<appliedenergistics2:tile.BlockController>);
++recipes.addShaped(<appliedenergistics2:tile.BlockEnergyAcceptor>, [[<ore:ingotIron>, <appliedenergistics2:tile.BlockQuartzGlass>, <ore:ingotIron>], [<appliedenergistics2:tile.BlockQuartzGlass>, <appliedenergistics2:item.ToolCertusQuartzWrench>.giveBack(<appliedenergistics2:item.ToolCertusQuartzWrench>), <appliedenergistics2:tile.BlockQuartzGlass>], [<ore:ingotIron>, <appliedenergistics2:tile.BlockQuartzGlass>, <ore:ingotIron>]]);
++recipes.addShaped(<appliedenergistics2:tile.BlockController>, [[<appliedenergistics2:tile.BlockSkyStone:1>, <ore:crystalPureFluix>, <appliedenergistics2:tile.BlockSkyStone:1>], [<appliedenergistics2:item.ItemMultiMaterial:24>, <appliedenergistics2:item.ToolCertusQuartzWrench>.giveBack(<appliedenergistics2:item.ToolCertusQuartzWrench>), <appliedenergistics2:item.ItemMultiMaterial:24>], [<appliedenergistics2:tile.BlockSkyStone:1>, <ore:crystalPureFluix>, <appliedenergistics2:tile.BlockSkyStone:1>]]);
+ 
+ #energy cells
+ recipes.remove(<appliedenergistics2:tile.BlockEnergyCell>);
+-recipes.addShaped(<appliedenergistics2:tile.BlockEnergyCell>, [[<appliedenergistics2:tile.BlockQuartzLamp>, <ore:dustFluix>, <appliedenergistics2:tile.BlockQuartzLamp>], [<ore:dustFluix>, <appliedenergistics2:tile.BlockEnergyAcceptor>, <ore:dustFluix>], [<appliedenergistics2:tile.BlockQuartzLamp>, <ore:dustFluix>, <appliedenergistics2:tile.BlockQuartzLamp>]]);
+-
+-#inscriber
+-recipes.remove(<appliedenergistics2:tile.BlockInscriber>);
+-recipes.addShaped(<appliedenergistics2:tile.BlockInscriber>, [[<ore:ingotIron>, <minecraft:sticky_piston>, <ore:ingotIron>], [<appliedenergistics2:item.ItemMultiMaterial:10>, <ThermalExpansion:Frame:3>, <IC2:upgradeModule>], [<ore:ingotIron>, <minecraft:sticky_piston>, <ore:ingotIron>]]);
++recipes.addShaped(<appliedenergistics2:tile.BlockEnergyCell>, [[<ore:crystalCertusQuartz>, <ore:dustFluix>, <ore:crystalCertusQuartz>], [<ore:dustFluix>, <appliedenergistics2:item.ToolCertusQuartzWrench>.giveBack(<appliedenergistics2:item.ToolCertusQuartzWrench>), <ore:dustFluix>], [<ore:crystalCertusQuartz>, <ore:dustFluix>, <ore:crystalCertusQuartz>]]);
+ 
+ #me chest
+ recipes.remove(<appliedenergistics2:tile.BlockChest>);
+-recipes.addShaped(<appliedenergistics2:tile.BlockChest>, [[<appliedenergistics2:item.ItemMultiPart:16>, <ore:chestWood>, <appliedenergistics2:item.ItemMultiPart:16>], [null, <appliedenergistics2:tile.BlockEnergyAcceptor>, null], [<appliedenergistics2:item.ItemMultiPart:16>, <ore:chestWood>, <appliedenergistics2:item.ItemMultiPart:16>]]);
++recipes.addShaped(<appliedenergistics2:tile.BlockChest>, [[<ore:glass>, <appliedenergistics2:item.ItemMultiPart:380>, <ore:glass>], [<appliedenergistics2:item.ItemMultiPart:16>, <appliedenergistics2:item.ToolCertusQuartzWrench>.giveBack(<appliedenergistics2:item.ToolCertusQuartzWrench>), <appliedenergistics2:item.ItemMultiPart:16>], [<ore:ingotIron>, <ore:crystalFluix>, <ore:ingotIron>]]);
+ 
+-#wireless controller
+-recipes.remove(<appliedenergistics2:item.ToolWirelessTerminal>);
+-recipes.addShaped(<appliedenergistics2:item.ToolWirelessTerminal>, [[<ore:pearlFluix>, <appliedenergistics2:item.ItemMultiMaterial:41>, <ore:pearlFluix>], [<ore:crystalPureFluix>, <appliedenergistics2:item.ItemMultiPart:380>, <ore:crystalPureFluix>], [<appliedenergistics2:item.ItemMultiMaterial:37>, <appliedenergistics2:item.ItemMultiMaterial:28>, <appliedenergistics2:item.ItemMultiMaterial:37>]]);
++#generator
++recipes.remove(<appliedenergistics2:tile.BlockVibrationChamber>);
++recipes.remove(<thaumicenergistics:thaumicenergistics.block.essentia.vibration.chamber>);
++recipes.remove(<extracells:vibrantchamberfluid>);
++
++#inscriber
++recipes.remove(<appliedenergistics2:tile.BlockInscriber>);
++recipes.addShaped(<appliedenergistics2:tile.BlockInscriber>, [[<ore:ingotIron>, <minecraft:sticky_piston>, <ore:ingotIron>], [<appliedenergistics2:item.ItemMultiMaterial:10>, <ThermalExpansion:Frame:3>, <IC2:upgradeModule>], [<ore:ingotIron>, <minecraft:sticky_piston>, <ore:ingotIron>]]);
+ 
+ print("Initialized 'AppliedEnergistics.zs'");
+diff -bur Infinity_2.3.5\ImmersiveEngineering.zs Infinity_2.4.2\ImmersiveEngineering.zs
+--- Infinity_2.3.5\ImmersiveEngineering.zs	Fri Jan 15 17:41:50 2016
++++ Infinity_2.4.2\ImmersiveEngineering.zs	Mon Mar 07 20:02:04 2016
+@@ -3,6 +3,30 @@
+ 
+ print("Initializing 'ImmersiveEngineering.zs'...");
+ 
++#remove plates from OreDict
++#val plateIron = <ore:plateIron>;
++#val plateAluminum = <ore:plateAluminum>;
++#val plateLead = <ore:plateLead>;
++#val plateConstantan = <ore:plateConstantan>;
++#val plateSteel = <ore:plateSteel>;
++#plateIron.remove(<ImmersiveEngineering:metal:30>);
++#plateAluminum.remove(<ImmersiveEngineering:metal:32>);
++#plateLead.remove(<ImmersiveEngineering:metal:33>);
++#plateConstantan.remove(<ImmersiveEngineering:metal:36>);
++#plateSteel.remove(<ImmersiveEngineering:metal:38>);
++
++#removePlateHammer
++recipes.removeShaped(<ImmersiveEngineering:metal:38>, [[<ore:ingotSteel>, <ImmersiveEngineering:tool>]]);
++recipes.removeShaped(<ImmersiveEngineering:metal:36>, [[<ore:ingotConstantan>, <ImmersiveEngineering:tool>]]);
++recipes.removeShaped(<ImmersiveEngineering:metal:33>, [[<ore:ingotLead>, <ImmersiveEngineering:tool>]]);
++recipes.removeShaped(<ImmersiveEngineering:metal:32>, [[<ore:ingotAluminium>, <ImmersiveEngineering:tool>]]);
++recipes.removeShaped(<ImmersiveEngineering:metal:30>, [[<ore:ingotIron>, <ImmersiveEngineering:tool>]]);
++
++recipes.remove(<ImmersiveEngineering:metalDevice2:10>);
++recipes.remove(<ImmersiveEngineering:metalDevice2:6>);
++recipes.addShaped(<ImmersiveEngineering:metalDevice2:10>, [[<ore:ingotIron>, <ImmersiveEngineering:metalDevice:2>, <ore:ingotIron>], [<ore:blockGlassColorless>, <ore:blockGlassColorless>, <ore:blockGlassColorless>], [<ore:plankTreatedWood>, <ThermalExpansion:Frame:2>, <ore:plankTreatedWood>]]);
++recipes.addShaped(<ImmersiveEngineering:metalDevice2:6>, [[null, <ore:ingotIron>, null], [<ore:ingotIron>, <BuildCraft|Factory:pumpBlock>, <ore:ingotIron>], [<ImmersiveEngineering:metalDevice2:5>, <ImmersiveEngineering:metalDevice2:5>, <ImmersiveEngineering:metalDevice2:5>]]);
++
+ #lightning rod base
+ recipes.remove(<ImmersiveEngineering:metalMultiblock>);
+ recipes.addShaped(<ImmersiveEngineering:metalMultiblock>, [[<ImmersiveEngineering:coil:2>, <IC2:blockFenceIron>, <ImmersiveEngineering:coil:2>], [<StevesCarts:ModuleComponents:49>, <IC2:blockFenceIron>, <StevesCarts:ModuleComponents:49>], [<ore:blockDarkSteel>, <ore:blockDarkSteel>, <ore:blockDarkSteel>]]);
+diff -bur Infinity_2.3.5\MinecraftGettingStarted.zs Infinity_2.4.2\MinecraftGettingStarted.zs
+--- Infinity_2.3.5\MinecraftGettingStarted.zs	Fri Jan 15 17:41:50 2016
++++ Infinity_2.4.2\MinecraftGettingStarted.zs	Mon Mar 07 20:02:04 2016
+@@ -249,7 +249,7 @@
+ recipes.remove(<appliedenergistics2:tile.BlockCrank>);
+ recipes.addShaped(<appliedenergistics2:tile.BlockCrank>, [[<ImmersiveEngineering:material>, <ImmersiveEngineering:material>, <ImmersiveEngineering:material>], [null, null, <ImmersiveEngineering:material>], [null, null, <ImmersiveEngineering:material>]]);
+ recipes.remove(<appliedenergistics2:tile.BlockGrinder>);
+-recipes.addShaped(<appliedenergistics2:tile.BlockGrinder>, [[<ore:stone>, <BuildCraft|Core:ironGearItem>, <ore:stone>], [<ore:crystalCertusQuartz>, <ore:stone>, <ore:crystalCertusQuartz>], [<ore:cobblestone>, <ore:crystalCertusQuartz>, <ore:cobblestone>]]);
++recipes.addShaped(<appliedenergistics2:tile.BlockGrinder>, [[<ore:stone>, <ore:gearIron>, <ore:stone>], [<ore:crystalCertusQuartz>, <ore:stone>, <ore:crystalCertusQuartz>], [<ore:cobblestone>, <ore:crystalCertusQuartz>, <ore:cobblestone>]]);
+ 
+ #Tic Grout reduction
+ recipes.remove(<TConstruct:CraftedSoil:1>);
