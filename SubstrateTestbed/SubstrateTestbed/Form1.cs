@@ -21,14 +21,16 @@ namespace SubstrateTestbed
             InitializeComponent();
      
         }
-        string worldPath = @"B:\Games\FeedTheBeast\FTBInfinity\minecraft\saves\New World";
+        //string worldPath = @"B:\Games\FeedTheBeast\FTBInfinity\minecraft\saves\New World";
+        string worldPath = @"B:\Games\MultiMC\MultiMC\instances\SinkPack 1.6\minecraft\saves\New World";
         void GenerateList()
         {
-            StreamWriter wr = new StreamWriter(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "OreList.txt"), false);
+            StreamWriter wr = new StreamWriter(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "HiveList.txt"), false);
 
             int totalcount = 0;
             int ore = 2646;
             int oreMeta = 6;
+            int hive = 627;
 
             // Open our world
 
@@ -36,7 +38,7 @@ namespace SubstrateTestbed
 
             // The chunk manager is more efficient than the block manager for
             // this purpose, since we'll inspect every block
-            RegionChunkManager rcm = world.GetChunkManager();
+            RegionChunkManager rcm = world.GetChunkManager(0);
 
             pbChunks.Maximum = rcm.Count();
             pbChunks.Minimum = 0;
@@ -45,10 +47,10 @@ namespace SubstrateTestbed
             foreach (ChunkRef chunk in rcm)
             {
                 pbChunks.Value++;
-                if (chunk.X < 0 || chunk.Z < 0 || chunk.Z > 134 || chunk.X > 111)
-                {
-                    continue;
-                }
+                //if (chunk.X < 0 || chunk.Z < 0 || chunk.Z > 134 || chunk.X > 111)
+                //{
+                //    continue;
+                //}
 
                 // You could hardcode your dimensions, but maybe some day they
                 // won't always be 16.  Also the CLR is a bit stupid and has
@@ -72,16 +74,16 @@ namespace SubstrateTestbed
                         for (int y = 0; y < ydim; y++)
                         {
                             int cid = chunk.Blocks.GetID(x, y, z);
-                            if (y > 3)
+                            if (y > 1)
                             {
-                                if (cid == ore)
+                                if (cid == hive)
                                 {
                                     int cdata = chunk.Blocks.GetData(x, y, z);
-                                    if (cdata == oreMeta)
-                                    {
-                                        wr.WriteLine("E;{0};{1};{2};{3}", chunk.X * xdim + x, chunk.Z * zdim + z, y,biome);
+                                    //if (cdata == oreMeta)
+                                    //{
+                                        wr.WriteLine("H;{0};{1};{2};{3},{4}", chunk.X * xdim + x, chunk.Z * zdim + z, y, biome, cdata);
                                         totalcount++;
-                                    }
+                                    //}
                                 }
                             }
                             //Break when hitting daylight.
